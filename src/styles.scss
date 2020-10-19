@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'base';
+@import 'mixins';
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800|Open+Sans:300,400,600,800');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif!important;
+  background: $bgColor;
+  color: $textColor;
+  font-size: 14px!important;
+  font-weight: 300!important;
+}
+
+
+
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+// Tablets and small desktops
+$screen-lg-min: 992px;
+// Large tablets and desktops
+$screen-xl-min: 1200px;

@@ -1,0 +1,61 @@
+@import '../../../../base';
+/* Navbar section */
+.navbar {
+  background-color: rgba(#262a40, 1);
+  border-bottom: 1px solid  rgba(#fff, 0.15);
+  box-shadow: 0 0 3px 3px rgba(#000, 0.15);
+
+  height: 100px;
+  line-height: 74px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 9;
+  top: 0;
+  transition: all 0.3s ease-in-out;
+
+  .text {
+    color: #fa2526;
+    color: white;
+    display: inline-block;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-right: 4rem;
+    padding: 0;
+    vertical-align: top;
+  }
+
+  .nav-item {
+    &.active {
+      .nav-link {
+        color: $textColorNavHover;
+      }
+    }
+  }
+  .nav-link {
+    color: white;
+    font-size: 24px;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      color: $textColorNavHover;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  .search {
+    border: 0;
+    border-radius: 50px;
+    height: 60px;
+    padding-left: 24px;
+
+  }
+  @media screen and (max-width: 768px) {
+      //background-color: rgba(#262a40, 1);
+      color: white!important;
+      transition: all 0.3s ease-in-out;
+  }
+}
+.logo {
+ max-height: 65px;
+}

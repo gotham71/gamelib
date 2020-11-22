@@ -1,0 +1,118 @@
+@import '../../../base';
+@import '../../../mixins';
+
+
+
+a {
+  color: $textColor;
+  text-decoration: none;
+}
+.gamesListContainer{
+  h6 {
+    color: white;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+  }
+  padding: 36px 0 36px 0;
+}
+
+.card {
+    background: white;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0px 4px 8px 0px rgba(black,0.5);
+    color: $textColor;
+    margin-top: 14px;
+    transition: 0.25s all ease-in-out;
+    &:hover {
+      //border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 4px 0 rgba(black,1);
+      transition: 0.25s all ease-in-out;
+    }
+    img {
+      width: 100%;
+    }
+    .card-date {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba($textColor, 0.5);
+      border-radius: 4px;
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      //margin: 0 12px 12px 0;
+      padding: 4px 8px;
+      text-align: center;
+      fa-icon {
+       // color: $textColorNavHover;
+      }
+    }
+    .card-name {
+      font-size: 18px;
+      font-weight: 700;
+      padding: 12px 12px 0 12px;
+    }
+    .card-platforms {
+      padding: 12px 12px 24px 12px;
+      img {
+        height: 24px;
+        padding: 0 6px 0 0;
+        width: auto;
+      }
+      .card-metacritic {
+        color: $textColorNavHover;
+        display: inline-block;
+        float: right;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 4px 0 0 0;
+        position: relative;
+        width: 92px;
+        .sizeMC {
+          left: 0;
+          overflow: hidden;
+          position: absolute;
+          top: 0;
+          white-space: nowrap;
+        }
+      }
+    }
+    .card-genres {
+      padding: 0px 12px 6px 12px;
+      .genreItem{
+        display: inline-block;
+        background: $textColor;
+        border-radius: 4px;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin: 0 12px 12px 0;
+        padding: 6px 18px;
+        text-align: center;
+      }
+    }
+  }
+
+
+
+
+
+// COLUMNS BEHAVIOR
+
+.card-columns {
+  @media (min-width: 576px) {
+    column-count: 1;
+  }
+  @media (min-width: 768px) {
+    column-count: 2;
+  }
+  @media (min-width: 992px) {
+    column-count: 3;
+  }
+
+}
+

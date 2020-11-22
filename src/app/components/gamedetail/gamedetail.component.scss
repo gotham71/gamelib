@@ -1,0 +1,155 @@
+@import "../../../base";
+
+p {
+  color: white;
+}
+
+.imgTopContainer {
+  position: relative;
+  .imgContent {
+    bottom: 0px;
+    height: 160px;
+    left: 24.9%;
+    margin: 0 15px 0 15px;
+    overflow: hidden;
+    position: absolute;
+    vertical-align: bottom;
+    right: 0;
+    .title {
+      color: white;
+      display: block;
+      font-size: 40px;
+      font-weight: bold;
+      max-height: 114px;
+      line-height: 54px;
+      overflow: hidden;
+      padding: 0 0 0 24px;
+      position: absolute;
+      text-align: left;
+      text-overflow: ellipsis;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+    .genresContainer {
+      bottom: 0;
+      padding: 0px 12px 12px 28px;
+      position: absolute;
+      .genreItem {
+        background: $textColor;
+        border-radius: 4px;
+        color: white;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin: 0 12px 0 0;
+        padding: 6px 18px;
+        text-align: center;
+      }
+    }
+  }
+
+  img {
+    min-width: 100%;
+    max-height: 450px;
+    //display: contents;
+    /* width: 260px; */
+    object-fit: cover;
+  }
+}
+
+.cover {
+  border-radius: 4px;
+  box-shadow: 0px 0px 9px 3px rgba(255, 255, 255, 0.35);
+  display: block;
+  margin: -90px auto 30px auto;
+  max-width: 96%;
+  max-height: 160px;
+  object-fit: cover;
+  width: 100%;
+  &.noTopImage {
+    margin: 0 auto 30px auto;
+  }
+  @include md {
+    margin: 36px auto;
+    max-height: 260px;
+    //width: 100%;
+  }
+}
+
+.description {
+  padding: 0 12px 36px 12px;
+  font-size: 16px;
+  color: white;
+  @include md {
+    padding: 24px 0 24px 0;
+  }
+}
+
+.mediaContainer {
+  margin: 0 0 36px 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  div {
+    padding: 0 12px;
+    @include md {
+      padding: 0 6px;
+    }
+    @include sm {
+      padding: 0;
+    }
+  }
+  img {
+
+    flex: 1 100%;
+    border-radius: 4px;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-bottom: 24px;
+  }
+}
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin: 0 12px;
+}
+.videoWrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.titleMobile {
+  color: white;
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  //max-height: 114px;
+  line-height: 36px;
+  overflow: hidden;
+  //padding: 0 0 0 24px;
+  //position: absolute;
+  text-align: left;
+  text-overflow: ellipsis;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.genresContainerMobile {
+  //bottom: 0;
+  margin: 24px 0;
+  //position: absolute;
+  .genreItem {
+    background: $textColor;
+    border-radius: 4px;
+    color: white;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin: 0 12px 0 0;
+    padding: 6px 18px;
+    text-align: center;
+  }
+}

@@ -1,4 +1,17 @@
+@import 'mixins';
+
 $bgColor: #fcfcfa;
-$textColor: #333333;
-$textColorNavHover: #fa2526!important;
+$bgColor2: #262a40;
+$textColor: #404E67; //333333
+$textColorNavHover: #fa2526;
+
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+// Tablets and small desktops
+$screen-lg-min: 992px;
+// Large tablets and desktops
+$screen-xl-min: 1200px;
 

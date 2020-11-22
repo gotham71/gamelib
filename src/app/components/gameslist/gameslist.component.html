@@ -1,0 +1,65 @@
+<!-- <div class="row">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3 p-md-2" *ngFor="let game of gamesList">
+    <a class="card h-100 p-2" [routerLink]="['/game', game.id]">
+      <h5>{{game.name}}</h5>
+      <img [src]="game.background_image" class="img-fluid" alt="">
+    </a>
+  </div>
+</div> -->
+<!-- <div class="row card-colums mb-5">
+<div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2 " *ngFor="let game of gamesList">
+<a [routerLink]="['/game', game.id]" >
+  <div class="gameFoundCard card">
+    <div class="imgContainer">
+      <img  *ngIf="game.background_image" [src]="game.background_image" class="img-fluid">
+    </div>
+    <div class="titleContainer">
+      <h5>{{ game.name }}</h5>
+    </div>
+
+    <div class="platformsContainer">
+      <div  class="platformIconContainer">
+        <img  class="platformIcon" src="">
+      </div>
+    </div>
+    <div class="companiesContainer">
+      <small></small>
+    </div>
+  </div>
+</a>
+</div>
+</div> -->
+
+<div class="gamesListContainer container px-0 mt-5 mt-md-5">
+  <h6 class="mb-4 mt-5">{{searchTermInput}}</h6>
+  <div class="card-columns">
+    <a class="card" *ngFor="let game of gamesList" [routerLink]="['/game', game.id, game.slug]">
+      <div class="card-date">
+        <fa-icon [icon]="faCalendar" class="mr-1"></fa-icon>
+        {{game.released}}
+      </div>
+      <img  *ngIf="game.background_image" [src]="game.background_image" class="img-fluid">
+      <div class="card-name">
+        {{ game.name }}
+        <!-- <span *ngIf="game.clip">YES</span> -->
+        <!-- - {{ game.metacritic }} -->
+      </div>
+
+      <div class="card-platforms align-items-center">
+        <img class="img-fluid pt-2" *ngFor="let platform of game.parent_platforms" src="assets/imgs/platforms/{{platform.platform.id}}.svg">
+        <div class="card-metacritic pt-2" *ngIf="game.metacritic">
+          <div class="sizeMC" [style.width]="game.metacritic+'%'">
+            <fa-icon [icon]="fasStar"></fa-icon>
+            <fa-icon [icon]="fasStar"></fa-icon>
+            <fa-icon [icon]="fasStar"></fa-icon>
+            <fa-icon [icon]="fasStar"></fa-icon>
+            <fa-icon [icon]="fasStar"></fa-icon>
+          </div>
+        </div>
+      </div>
+      <div class="card-genres">
+        <span class="genreItem" *ngFor="let genre of game.genres">{{genre.name}}</span>
+      </div>
+    </a>
+  </div>
+</div>

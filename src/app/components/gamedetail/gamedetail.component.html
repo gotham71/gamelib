@@ -1,0 +1,129 @@
+<!-- <div class="container px-0">
+
+  <p>{{game.name}}</p>
+  <p>{{game.description_raw}}</p>
+
+  <img *ngFor="let gameImg of gamesImgsList" [src]="gameImg.image" class="img-fluid w-25 d-inline-block">
+</div> -->
+
+<!-- <div class="containerScreenshotGameGb p-0 m-0">
+	<div class="container containerScreenshotGameGbColor">
+		<img *ngIf="game.background_image" [src]="game.background_image" />
+	</div>
+</div> -->
+
+<div class="container px-0 pb-5 mb-5" style="margin-top: 100px;" *ngIf="game">
+	<div class="row">
+		<div class="col-12 text-center imgTopContainer p-0">
+			<img *ngIf="gamesImgsList[gameImgTop]" [src]="gamesImgsList[gameImgTop].image" class="img-fluid" />
+			<div class="imgContent d-none d-md-block">
+				<div class="title" *ngIf="game.name">
+					{{game.name}}
+				</div>
+				<div class="genresContainer" *ngIf="game.genres">
+          <span class="genreItem" *ngFor="let genre of game.genres">{{genre.name}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mt-3 p-0 pl-md-4">
+		<div class="d-none d-md-block col-md-3 p-md-0">
+			<img *ngIf="game.background_image"
+				[src]="game.background_image"
+				class="cover img-fluid" [ngClass]="{'noTopImage': !game.background_image}" />
+			<div *ngIf="game.released" class="text-center">
+				<p>
+          <fa-icon [icon]="faCalendar" class="mr-2"></fa-icon>
+					{{game.released}}
+				</p>
+			</div>
+      <hr>
+      <div class="developersContainer pl-2">
+        <p class="mb-2" style="color: white;">Developer <span *ngIf="!devAndPubDifferents">& Publisher</span></p>
+        <h6 style="color: white;" *ngFor="let developer of game.developers">
+            {{developer.name}}
+        </h6>
+      </div>
+      <hr>
+      <div class="publishersContainer pl-2" *ngIf="devAndPubDifferents && game.publishers" >
+        <p style="color: white;">Publisher</p>
+        <h6 style="color: white;" *ngFor="let publisher of game.publishers">
+            {{publisher.name}}
+        </h6>
+      </div>
+      <hr *ngIf="devAndPubDifferents && game.publishers">
+      <div class="esrbRatingContianer pl-2" *ngIf="game.esrb_rating">
+        <p style="color: white;">ESRB</p>
+        <h6 style="color: white;">
+            {{game.esrb_rating.name}}
+        </h6>
+      </div>
+      <hr *ngIf="game.esrb_rating">
+      <div class="webContainer pl-2" *ngIf="game.website">
+        <p style="color: white;">Website</p>
+        <h6 class="text-truncate"><a style="text-decoration: none; color: white;" target="_blanck" [href]="game.website">{{game.website}}</a></h6>
+      </div>
+    </div>
+    <div class="d-block col-12 d-md-none">
+      <div class="imgContent">
+				<div class="titleMobile" *ngIf="game.name">
+					{{game.name}}
+				</div>
+				<div class="genresContainerMobile" *ngIf="game.genres">
+          <span class="genreItem" *ngFor="let genre of game.genres">{{genre.name}}</span>
+				</div>
+			</div>
+			<img *ngIf="game.background_image"
+				[src]="game.background_image"
+				class="cover img-fluid" [ngClass]="{'noTopImage': !game.background_image}" />
+			<div *ngIf="game.released" class="text-center">
+				<p>
+          <fa-icon [icon]="faCalendar" class="mr-2"></fa-icon>
+					{{game.released}}
+				</p>
+			</div>
+      <hr>
+      <div class="developersContainer pl-2">
+        <p class="mb-2" style="color: white;">Developer <span *ngIf="!devAndPubDifferents">& Publisher</span></p>
+        <h6 style="color: white;" *ngFor="let developer of game.developers">
+            {{developer.name}}
+        </h6>
+      </div>
+      <hr>
+      <div class="publishersContainer pl-2" *ngIf="devAndPubDifferents && game.publishers" >
+        <p style="color: white;">Publisher</p>
+        <h6 style="color: white;" *ngFor="let publisher of game.publishers">
+            {{publisher.name}}
+        </h6>
+      </div>
+      <hr *ngIf="devAndPubDifferents && game.publishers">
+      <div class="esrbRatingContianer pl-2" *ngIf="game.esrb_rating">
+        <p style="color: white;">ESRB</p>
+        <h6 style="color: white;">
+            {{game.esrb_rating.name}}
+        </h6>
+      </div>
+      <hr *ngIf="game.esrb_rating">
+      <div class="webContainer pl-2" *ngIf="game.website">
+        <p style="color: white;">Website</p>
+        <h6 class="text-truncate"><a style="text-decoration: none; color: white;" target="_blanck" [href]="game.website">{{game.website}}</a></h6>
+      </div>
+		</div>
+		<div class="col-12 col-md-9">
+			<div class="description mb-4">
+				{{game.description_raw}}<br/>
+      </div>
+      <div class="mediaContainer">
+        <div *ngFor="let gameImg of gamesImgsList" class="col-12 col-sm-6 col-md-4">
+          <img [src]="gameImg.image" class="img-fluid">
+        </div>
+
+      </div>
+      <div class="videoWrapper">
+        <!-- <img *ngIf="game.clip" [src]="game.clip.preview" class="img-fluid"> -->
+        <video width="549" height="349" controls *ngIf="game.clip" controls [src]="game.clip.clips.full | safeurl" allowfullscreen frameborder="0"></video>
+      </div>
+    </div>
+
+	</div>
+</div>

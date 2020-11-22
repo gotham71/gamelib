@@ -10,6 +10,7 @@ import { GamedetailComponent } from './components/gamedetail/gamedetail.componen
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SafeurlPipe } from './pipes/safeurl/safeurl.pipe';
+import { LightboxModule } from 'ngx-lightbox';
 
 @NgModule({
 	declarations: [
@@ -24,7 +25,8 @@ import { SafeurlPipe } from './pipes/safeurl/safeurl.pipe';
 		HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LightboxModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

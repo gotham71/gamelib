@@ -114,14 +114,14 @@
 				{{game.description_raw}}<br/>
       </div>
       <div class="mediaContainer">
-        <div *ngFor="let gameImg of gamesImgsList" class="col-12 col-sm-6 col-md-4">
-          <img [src]="gameImg.image" class="img-fluid">
+        <div *ngFor="let gameImg of _albums; let i=index" class="col-12 col-sm-6 col-md-4">
+          <img [src]="gameImg.src" (click)="open(i)" class="img-fluid">
         </div>
 
       </div>
-      <div class="videoWrapper">
+      <div class="videoWrapper" *ngIf="game.clip">
         <!-- <img *ngIf="game.clip" [src]="game.clip.preview" class="img-fluid"> -->
-        <video width="549" height="349" controls *ngIf="game.clip" controls [src]="game.clip.clips.full | safeurl" allowfullscreen frameborder="0"></video>
+        <video width="549" height="349" controls [src]="game.clip.clips.full | safeurl" allowfullscreen frameborder="0"></video>
       </div>
     </div>
 

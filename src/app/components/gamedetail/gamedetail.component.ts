@@ -16,7 +16,7 @@ export class GamedetailComponent implements OnInit {
 
   constructor(private _GamesService: GamesService, public activatedRoute: ActivatedRoute, private _lightbox: Lightbox) { }
 
-  game: any = {};
+  game: any;
   public gamesImgsList: any = [];
   gameImgTop: number;
   devAndPubDifferents: boolean;
@@ -28,9 +28,10 @@ export class GamedetailComponent implements OnInit {
           this.game = responseGame;
           this.gamesImgsList = response['results'];
           this.gameImgTop = this.Numbers(0, this.gamesImgsList.length-1); // get number for random img on top
-          this.devAndPubDifferents = (this.game.developers[0].name == this.game.publishers[0].name) ? false : true;
-
-          for (let i = 0; i <= this.gamesImgsList.length; i++) {
+          if (this.game.publishers.length > 0) {
+            this.devAndPubDifferents = (this.game.developers[0].name == this.game.publishers[0].name) ? false : true;
+          }
+          for (let i = 0; i < this.gamesImgsList.length; i++) {
             const src = this.gamesImgsList[i].image;
             const caption = '';
             const thumb = this.gamesImgsList[i].image;

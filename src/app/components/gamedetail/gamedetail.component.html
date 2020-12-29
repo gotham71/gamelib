@@ -1,17 +1,3 @@
-<!-- <div class="container px-0">
-
-  <p>{{game.name}}</p>
-  <p>{{game.description_raw}}</p>
-
-  <img *ngFor="let gameImg of gamesImgsList" [src]="gameImg.image" class="img-fluid w-25 d-inline-block">
-</div> -->
-
-<!-- <div class="containerScreenshotGameGb p-0 m-0">
-	<div class="container containerScreenshotGameGbColor">
-		<img *ngIf="game.background_image" [src]="game.background_image" />
-	</div>
-</div> -->
-
 <div class="container px-0 pb-5 mb-5" style="margin-top: 100px;" *ngIf="game">
 	<div class="row">
 		<div class="col-12 text-center imgTopContainer p-0">
@@ -38,7 +24,7 @@
 				</p>
 			</div>
       <hr>
-      <div class="developersContainer pl-2">
+      <div class="developersContainer pl-2" *ngIf="game.developers">
         <p class="mb-2" style="color: white;">Developer <span *ngIf="!devAndPubDifferents">& Publisher</span></p>
         <h6 style="color: white;" *ngFor="let developer of game.developers">
             {{developer.name}}
@@ -83,7 +69,7 @@
 				</p>
 			</div>
       <hr>
-      <div class="developersContainer pl-2">
+      <div class="developersContainer pl-2" *ngIf="game.developers">
         <p class="mb-2" style="color: white;">Developer <span *ngIf="!devAndPubDifferents">& Publisher</span></p>
         <h6 style="color: white;" *ngFor="let developer of game.developers">
             {{developer.name}}
@@ -119,9 +105,12 @@
         </div>
 
       </div>
+
       <div class="videoWrapper" *ngIf="game.clip">
         <!-- <img *ngIf="game.clip" [src]="game.clip.preview" class="img-fluid"> -->
-        <video width="549" height="349" controls [src]="game.clip.clips.full | safeurl" allowfullscreen frameborder="0"></video>
+        <!-- <video width="549" height="349" controls [src]="game.clip.clips.full | safeurl" allowfullscreen frameborder="0"></video> -->
+
+        <iframe [src]="'https://www.youtube.com/embed/'+game.clip.video | safeurl" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
 

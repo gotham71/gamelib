@@ -31,8 +31,7 @@ export class GamesService {
 
   getGames() {
     console.log(this.firstDayMonth);
-    console.log(this.lastDayMonth);
-  	return this.http.get(`${this.urlGameDb}/games?parent_platforms=1,2,3,7&dates=${this.firstDayMonth},${this.lastDayMonth}&page_size=40`);
+  	return this.http.get(`${this.urlGameDb}/games?parent_platforms=1,2,3,7&dates=${this.firstDayMonth},${this.lastDayMonth}&rating=released&page_size=40`);
   }
 
   getGame(slug) {
@@ -43,7 +42,11 @@ export class GamesService {
     return this.http.get(`${this.urlGameDb}/games/${slug}/screenshots`);
   }
 
-  searchGame(searchTerm: string) {
-    return this.http.get(`${this.urlGameDb}/games?search=${searchTerm}&page_size=40`);
+  searchGame(searchTerm: string, page: number = 1) {
+    return this.http.get(`${this.urlGameDb}/games?search=${searchTerm}&page=${page}&page_size=40`);
+  }
+
+  searchGameNext(url: string) {
+    return this.http.get(url);
   }
 }

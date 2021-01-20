@@ -11,8 +11,8 @@ export class GamesService {
   currentYear: number = this.currentDate.getFullYear();
   currentMonth: number = this.currentDate.getMonth()+1;
   lastDay = new Date(this.currentYear, this.currentMonth, 0).getDate();
-  firstDayMonth: string = this.currentYear + '-' + this.currentMonth + '-01';
-  lastDayMonth: string = this.currentYear + '-' + this.currentMonth + '-' + this.lastDay;
+  firstDayMonth: string;
+  lastDayMonth: string;
 
     // Base URL
   urlGameDb: string ="https://api.rawg.io/api"
@@ -30,8 +30,14 @@ export class GamesService {
 
 
   getGames() {
-    console.log(this.firstDayMonth);
-  	return this.http.get(`${this.urlGameDb}/games?parent_platforms=1,2,3,7&dates=${this.firstDayMonth},${this.lastDayMonth}&rating=released&page_size=40`);
+    if (this.currentMonth < 10) {
+      this.firstDayMonth = this.currentYear + '-0' + this.currentMonth + '-01';
+      this.lastDayMonth = this.currentYear + '-0' + this.currentMonth + '-' + this.lastDay;
+    } else {
+      this.firstDayMonth = this.currentYear + '-' + this.currentMonth + '-01';
+      this.lastDayMonth = this.currentYear + '-' + this.currentMonth + '-' + this.lastDay;
+    }
+  	return this.http.get(`${this.urlGameDb}/games?platforms=1,2,3,7&dates=${this.firstDayMonth},${this.lastDayMonth}&rating=released&page_size=40`);
   }
 
   getGame(slug) {

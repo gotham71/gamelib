@@ -21,26 +21,26 @@ export class GameslistComponent implements OnInit{
   pos:number;
   max:number;
   @HostListener("window:scroll", ["$event"])
-onWindowScroll() {
-  console.log('scrolling');
-//In chrome and some browser scroll is given to body tag
-console.log('scrolltop: ' + document.documentElement.scrollTop);
-console.log('offsetHeight: ' + document.documentElement.offsetHeight);
-console.log('window.innerHeight: ' + window.innerHeight);
+  onWindowScroll() {
+    console.log('scrolling');
+    //In chrome and some browser scroll is given to body tag
+    console.log('scrolltop: ' + document.documentElement.scrollTop);
+    console.log('offsetHeight: ' + document.documentElement.offsetHeight);
+    console.log('window.innerHeight: ' + window.innerHeight);
 
 
-this.pos = (document.documentElement.scrollTop || document.body.scrollTop) + window.innerHeight;
-this.max = document.documentElement.scrollHeight;
-//console.log(pos);
-console.log(this.max);
+    this.pos = (document.documentElement.scrollTop || document.body.scrollTop) + window.innerHeight;
+    this.max = document.documentElement.scrollHeight;
+    //console.log(pos);
+    console.log(this.max);
 
-// pos/max will give you the distance between scroll bottom and and bottom of screen in percentage.
- if(Math.trunc(this.pos) == Math.trunc(this.max) )   {
- //Do your action here
+    // pos/max will give you the distance between scroll bottom and and bottom of screen in percentage.
+    if(Math.trunc(this.pos) == Math.trunc(this.max) )   {
+    //Do your action here
 
- //console.warn('pepe');
- this.MoreData();
- }
+    //console.warn('pepe');
+    this.MoreData();
+  }
 }
 
   constructor(private _GamesService: GamesService, public route: ActivatedRoute) { }
